@@ -1,0 +1,59 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+
+{% load bootstrap4 %}
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+    <div class="wrapper">
+
+        <div class="section-authentication-signin d-flex align-items-center justify-content-center my-5 my-lg-0">
+            <div class="container-fluid">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                    <div class="col mx-auto">
+                        `
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="p-4 rounded">
+                                    <div class="text-center">
+                                        </p>
+                                    </div>
+                                    <div class="d-grid">
+                                        <div style="text-align: center;">
+                                            <div class="mb-4 text-center">
+                                                <img src="{% static 'images/coolpam.jpeg' %}" width="180" alt=""/>
+                                            </div>
+                                            <h1>Log-in</h1>
+                                            {% if form.errors %}
+                                                <p>
+                                                    Your username and password didn't match.Please
+                                                    Please try again.
+                                                </p>
+                                            {% else %}
+                                                <p>Please, use the following form to log-in</p>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-body">
+                                            <form action="" method="post" class="row g-3">
+                                                <p><a href="#">Forgotten your password?</a></p>
+                                                {% csrf_token %}
+                                                {% bootstrap_form form %}
+                                                {% buttons %}
+                                                    <input type="hidden" name="next" value="{{ next }}"/>
+                                                    <button type="submit" class="btn btn-primary center"><i
+                                                            class="bx bxs-lock-open"></i>Submit
+                                                    </button>
+                                                {% endbuttons %}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end row-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
