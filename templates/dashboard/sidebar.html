@@ -14,7 +14,7 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="javascript:;" class="has-arrow">
+					<a href="{% url 'accounts:dashboard' %}" class="has-arrow">
 
 						<div class="menu-title">Dashboard</div>
 					</a>
@@ -35,7 +35,7 @@
 
                         <li> <a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Customers</a>
 						</li>
-                        <li> <a href="ecommerce-products.html"><i class="bx bx-right-arrow-alt"></i>Users</a>
+                        <li> <a href="{% url 'accounts:userlist' %}"><i class="bx bx-right-arrow-alt"></i>Users</a>
 						</li>
 						<li> <a href="ecommerce-products-details.html"><i class="bx bx-right-arrow-alt"></i>Roles</a>
 						</li>

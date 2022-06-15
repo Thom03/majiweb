@@ -1,18 +1,27 @@
-from django.urls import path
-from .views import *
-from django.urls import reverse_lazy
-from django.contrib.auth.views import (LoginView, LogoutView, PasswordResetDoneView, PasswordResetView,
-                                       PasswordResetCompleteView, PasswordResetConfirmView,
-                                       PasswordChangeView, PasswordChangeDoneView,
-                                       PasswordResetDoneView)
+from django.contrib.auth.views import (
+    LoginView,
+    LogoutView,
+    PasswordChangeDoneView,
+    PasswordChangeView,
+    PasswordResetCompleteView,
+    PasswordResetConfirmView,
+    PasswordResetDoneView,
+    PasswordResetView,
+)
+from django.urls import path, reverse_lazy
 
-app_name = 'accounts'
+from .views import *
+
+app_name = "accounts"
 
 urlpatterns = [
     # path('register/', register, name='register'),
     # path('edit/', edit, name='edit'),
-    path('dashboard/', dashboard, name='dashboard'),
-    path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
+    path("dashboard/", dashboard, name="dashboard"),
+    path(
+        "login/", LoginView.as_view(template_name="accounts/login.html"), name="login"
+    ),
+    path("userlist/", userList, name="userlist"),
     # path('logout/', LogoutView.as_view(template_name='authapp/logged_out.html'), name='logout'),
     # path('password_change/', PasswordChangeView.as_view(
     #     template_name='authapp/password_change_form.html'), name='password_change'),
@@ -29,6 +38,4 @@ urlpatterns = [
     #     success_url=reverse_lazy('authapp:login')), name='password_reset_confirm'),
     # path('reset/done/', PasswordResetCompleteView.as_view(
     #     template_name='authapp/password_reset_complete.html'), name='password_reset_complete'),
-
 ]
-
