@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
+    "customers.apps.CustomersConfig",
     "django_extensions",
     "bootstrap4",
 ]
