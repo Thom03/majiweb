@@ -17,13 +17,14 @@ def listCustomer(request):
 def createCustomer(request):
     if request.method == "POST":
         customer_form = CustomerForm(request.POST)
+        customer_form.instance.owner = request.user
         if customer_form.is_valid():
             customer_form.save()
             messages.success(request, "The customer was added successfully.")
         else:
             messages.error(request, "Error adding new customer.")
 
-        return redirect("customer:customerlist")
+        return redirect("customers:listCustomer")
     customers_form = CustomerForm()
 
     return render(request=request, template_name="customers/createcustomer.html", context={'customers_form': customers_form})
