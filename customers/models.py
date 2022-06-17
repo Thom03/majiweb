@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Create your models here.
+
+# Customer model for the system
 class Customer(models.Model):
     owner = models.ForeignKey(
         "auth.User", related_name="customers", on_delete=models.CASCADE
