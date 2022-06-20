@@ -7,7 +7,7 @@ from customers.models import Customer
 # Create your views here.
 # Listing all the customers
 def listCustomer(request):
-    data = {"users": Customer.objects.all()}
+    data = {"customers": Customer.objects.all()}
 
     # print("print all data", data)
 
