@@ -8,9 +8,6 @@ from customers.models import Customer
 # Listing all the customers
 def listCustomer(request):
     data = {"customers": Customer.objects.all()}
-
-    # print("print all data", data)
-
     return render(request, "customers/customerlist.html", data)
 
 
@@ -28,3 +25,8 @@ def createCustomer(request):
     customers_form = CustomerForm()
 
     return render(request=request, template_name="customers/createcustomer.html", context={'customers_form': customers_form})
+
+
+def listSites(request):
+    data = {"customers": Customer.objects.all()}
+    return render(request, "customers/customerlist.html", data)

@@ -2,8 +2,21 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
-
 # Create your models here.
+# Site management
+class Site(models.Model):
+    site_name = models.CharField(max_length=100, blank=True)
+    created = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["created"]
+        db_table = "sites"
+        verbose_name = _("Site")
+        verbose_name_plural = _("Sites")
+
+    def __str__(self):
+        return self.site_name
+
 
 # Customer model for the system
 class Customer(models.Model):
