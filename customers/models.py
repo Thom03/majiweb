@@ -29,6 +29,7 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=100, blank=True)
     national_id = models.IntegerField(unique=True)
     phone_number = models.CharField(max_length=13, blank=True)
+    site = models.ForeignKey(Site, on_delete=models.CASCADE, default=1)
     email = models.EmailField()
 
     class Meta:

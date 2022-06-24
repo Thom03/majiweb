@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "customers.apps.CustomersConfig",
     "django_extensions",
     "bootstrap4",
+    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [

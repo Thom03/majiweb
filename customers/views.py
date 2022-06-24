@@ -1,6 +1,8 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from customers.forms import CustomerForm
+from django.views.generic import View
+
+from customers.forms import CustomerForm, SiteForm
 from customers.models import Customer
 
 
@@ -27,6 +29,15 @@ def createCustomer(request):
     return render(request=request, template_name="customers/createcustomer.html", context={'customers_form': customers_form})
 
 
-def listSites(request):
-    data = {"customers": Customer.objects.all()}
-    return render(request, "customers/customerlist.html", data)
+# def listSites(request):
+#     data = {"customers": Customer.objects.all()}
+#     return render(request, "customers/sitemanage.html.html", data)
+
+class SitesView(View):
+    context = {}
+
+    def get(self, request):
+        form = SiteForm()
+        self.context['form'] = form
+        return render(request, 'customers/sitemanage.html', self.context)
+
