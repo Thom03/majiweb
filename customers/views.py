@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import View
 
 from customers.forms import CustomerForm, SiteForm
-from customers.models import Customer
+from customers.models import Customer, Site
 
 
 # Create your views here.
@@ -34,10 +34,17 @@ def createCustomer(request):
 #     return render(request, "customers/sitemanage.html.html", data)
 
 class SitesView(View):
-    context = {}
+    context = {"sites": Site.objects.all()}
 
     def get(self, request):
-        form = SiteForm()
-        self.context['form'] = form
+        if request.method == "POST":
+            site_form = SiteForm(request.POST)
+            if site_form.is_valid():
+                site_form.save()
+                messages.success(request, "The Site was added successfully.")
+            else:
+                messages.error(request, "Error adding new customer.")
+        site_form = SiteForm()
+        self.context['site_form'] = site_form
         return render(request, 'customers/sitemanage.html', self.context)
 
