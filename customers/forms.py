@@ -11,4 +11,4 @@ class SiteForm(forms.ModelForm):
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customer
-        fields = ('first_name', 'last_name', 'national_id', 'phone_number', 'email')
+        fields = ('first_name', 'last_name', 'national_id', 'site','phone_number', 'email')
