@@ -20,4 +20,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(("accounts.urls", "accounts"), namespace="accounts")),
     path("", include(("customers.urls", "customers"), namespace="customers")),
+    path("", include(("metering.urls", "metering"), namespace="metering")),
 ]

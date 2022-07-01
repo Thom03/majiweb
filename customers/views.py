@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.template.context_processors import request
 from django.views.generic import View
 
 from customers.forms import CustomerForm, SiteForm
@@ -33,18 +34,16 @@ def createCustomer(request):
 #     data = {"customers": Customer.objects.all()}
 #     return render(request, "customers/sitemanage.html.html", data)
 
-class SitesView(View):
-    context = {"sites": Site.objects.all()}
-
-    def get(self, request):
-        if request.method == "POST":
-            site_form = SiteForm(request.POST)
-            if site_form.is_valid():
-                site_form.save()
-                messages.success(request, "The Site was added successfully.")
-            else:
-                messages.error(request, "Error adding new customer.")
+#Adding and showing water sites
+def add_show_sites(request):
+    if request.method == "POST":
+        site_form = SiteForm(request.POST)
+        if site_form.is_valid():
+            site_form.save()
+            messages.success(request, "The Site was added successfully.")
+    else:
         site_form = SiteForm()
-        self.context['site_form'] = site_form
-        return render(request, 'customers/sitemanage.html', self.context)
+        messages.error(request, "Error Creating new Site.")
+    sites = Site.objects.all()
+    return render(request, 'customers/sitemanage.html', {'site_form': site_form, 'sites': sites})
 
