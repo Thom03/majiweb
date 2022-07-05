@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "customers.apps.CustomersConfig",
     "metering.apps.MeteringConfig",
     "django_extensions",
-    "bootstrap4",
+    'bootstrap4',
     'crispy_forms',
 
 ]
@@ -76,7 +76,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "majiweb.wsgi.application"
 
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 

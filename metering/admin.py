@@ -5,6 +5,7 @@ from metering.models import Meter
 @admin.register(Meter)
 class MeterAdmin(admin.ModelAdmin):
     list_display = (
+        "customer",
         "meter_serial",
         "meter_number",
         "meter_status"
