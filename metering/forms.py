@@ -6,4 +6,4 @@ from metering.models import Meter
 class MeterForm(forms.ModelForm):
     class Meta:
         model = Meter
-        fields = ('meter_serial', 'meter_number', 'meter_status',)
+        fields = ('customer','meter_serial', 'meter_number', 'meter_status',)
